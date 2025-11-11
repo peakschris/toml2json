@@ -2,6 +2,8 @@ name: Build with MSVC
 
 on:
   push:
+    branches:
+    - master
   pull_request:
 
 jobs:
@@ -21,4 +23,10 @@ jobs:
     - name: Build with MSVC and bazel
       shell: cmd
       run: |
-        bazel build //:for_windows_platforms
+        bazel build //:for_windows_platforms --noshow_progress
+
+    - name: Upload binary artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: toml2json-windows
+        path: bazel-out/windows_x86_64-opt/bin/toml2json.exe
