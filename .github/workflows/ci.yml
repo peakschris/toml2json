@@ -26,7 +26,7 @@ jobs:
         bazel build //:for_windows_platforms --noshow_progress
 
     - name: Upload binary artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: toml2json-windows
         path: bazel-out/windows_x86_64-opt/bin/toml2json.exe
