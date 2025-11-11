@@ -17,7 +17,7 @@ jobs:
     - name: Setup MSVC and bazel
       shell: cmd
       run: |
-        choco install bazelisk
+        choco install bazelisk --no-progress
         bazel --version
 
     - name: Build with MSVC and bazel

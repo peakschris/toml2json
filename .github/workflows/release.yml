@@ -32,7 +32,7 @@ jobs:
     - name: Setup MSVC and bazel
       shell: cmd
       run: |
-        choco install bazelisk
+        choco install bazelisk --no-progress
         bazel --version
 
     - name: Build
@@ -42,5 +42,5 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ./toml2json_*
+          toml2json_windows.exe
           SHA256.txt
