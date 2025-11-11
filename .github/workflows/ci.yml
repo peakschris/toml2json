@@ -1,0 +1,22 @@
+name: Build with MSVC
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup and Build with MSVC and bazel
+      shell: cmd
+      run: |
+        choco install bazelisk
+        bazel --version
+        bazel build //:for_windows_platforms
